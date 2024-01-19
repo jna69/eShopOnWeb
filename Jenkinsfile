@@ -7,26 +7,21 @@ pipeline {
       }
     }
 
-    stage('Tests') {
-      parallel {
-        stage('Unit') {
-          steps {
-            sh 'dotnet test tests/UnitTests'
-          }
-        }
+    stage('Unit') {
+      steps {
+        sh 'dotnet test tests/UnitTests'
+      }
+    }
 
-        stage('Integration') {
-          steps {
-            sh 'dotnet test tests/IntegrationTests'
-          }
-        }
+    stage('Integration') {
+      steps {
+        sh 'dotnet test tests/IntegrationTests'
+      }
+    }
 
-        stage('Functional') {
-          steps {
-            sh 'dotnet test tests/FunctionalTests'
-          }
-        }
-
+    stage('Functionnal') {
+      steps {
+        sh 'dotnet test tests/FunctionalTests'
       }
     }
 
